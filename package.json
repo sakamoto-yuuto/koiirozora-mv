@@ -1,0 +1,27 @@
+{
+  "name": "koiirozora-lyric-mv",
+  "version": "0.1.0",
+  "description": "Unofficial fan-made lyric MV for 恋色空 (森川由綺 / WHITE ALBUM 2009) — deterministic canvas renderer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "analyze": ".venv/Scripts/python tools/analyze_audio.py",
+    "preview": "node export/server.mjs --open",
+    "export:sample": "node export/export.mjs --start 0 --end 30 --width 960 --height 540 --fps 30 --out out/sample_540p30.mp4",
+    "export:preview": "node export/export.mjs --width 1920 --height 1080 --fps 60 --cq 26 --out out/preview_1080p60.mp4",
+    "export:4k": "node export/export.mjs --width 3840 --height 2160 --fps 60 --out out/koiirozora_4k60.mp4",
+    "storyboard": "node tools/storyboard.mjs",
+    "check": ".venv/Scripts/python tools/check_flash.py out/preview_1080p60.mp4 && .venv/Scripts/python tools/check_sync.py out/preview_1080p60.mp4"
+  },
+  "dependencies": {
+    "@fontsource/dotgothic16": "^5.3.1",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/klee-one": "^5.3.1",
+    "@fontsource/noto-sans-jp": "^5.3.1",
+    "@fontsource/noto-serif-sc": "^5.3.1",
+    "@fontsource/shippori-mincho": "^5.3.0",
+    "ffmpeg-static": "^5.3.0",
+    "playwright-core": "^1.63.0",
+    "bufferutil": "^4.0.9"
+  }
+}

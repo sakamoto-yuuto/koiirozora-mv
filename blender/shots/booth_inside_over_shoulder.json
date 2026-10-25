@@ -1,0 +1,12 @@
+{
+  "name": "booth_inside_over_shoulder",
+  "description": "Inside the same booth, over Yuki's right shoulder; right index on key 6. Glass hidden for diagram clarity.",
+  "groups": ["booth", "character"],
+  "hide_glass": true,
+  "qa_visible_sides": ["R"],
+  "hide": ["Booth.Door*"],
+  "camera": {"position": [3.89,0.53,1.66], "target": [3.60,1.20,1.39], "lens_mm": 22, "clip_start":0.02},
+  "characters": {"yuki": {"position": [3.43,0.73,0.08], "pose": "dial", "hands": {"R":[3.659,1.174,1.369],"L":[3.25,0.82,0.97]}}},
+  "depth_range_m": [0.08,1.8],
+  "key_light": {"position": [3.6,0.7,2], "energy": 12, "size": 0.6}
+}

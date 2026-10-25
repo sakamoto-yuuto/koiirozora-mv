@@ -1,0 +1,10 @@
+{
+  "name": "street_wide",
+  "description": "Same shopping street, booth in the right third, Yuki in the left half. Metres.",
+  "groups": ["street", "booth", "character"],
+  "hide_glass": true,
+  "camera": {"position": [-0.35, -8.3, 1.95], "target": [0.25, 18, 1.6], "lens_mm": 29},
+  "characters": {"yuki": {"position": [-1.7, -0.5, 0.03], "heading_deg": -55, "pose": "stand"}},
+  "depth_range_m": [1, 48],
+  "key_light": {"position": [0,-5,9], "energy": 1500, "size": 8}
+}

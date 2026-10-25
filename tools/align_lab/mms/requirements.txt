@@ -1,0 +1,5 @@
+# Pinned experiment environment.  Install from the PyTorch CUDA index when GPU
+# execution is approved; the CPU wheels expose the same MMS_FA API.
+torch==2.14.1
+torchaudio==2.11.0
+numpy==2.5.4

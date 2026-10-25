@@ -1,0 +1,7 @@
+Use the built-in image_gen tool. Generate exactly ONE image: a flat cut-paper / three-colour SCREENPRINT illustration of ONE object, seen from slightly above, centred, like an item laid on a table.
+STRICT FLAT INKS ONLY - no gradients, no soft shading, no texture, no outlines except edges between ink shapes:
+ (1) cream #F1E9DA, (2) wine-rose #8E3B4A, (3) near-black navy #1B2230. No other colours at all.
+Bold simple graphic shapes, one flat navy shadow plane; the object must be recognisable at a glance from its silhouette.
+Background: one perfectly flat uniform pure green #00FF00 filling the whole canvas; the object fully inside with 10% margin. Square 1:1. No text, no letters, no logos, no watermark.
+OBJECT: a folded knitted scarf
+After generation, copy that exact image file to __OUT__ with PowerShell Copy-Item. Do not resize or edit it. Reply only with the final path.

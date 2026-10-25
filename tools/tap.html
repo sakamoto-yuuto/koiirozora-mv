@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>恋色空 — 假名打点</title>
+<style>
+  body { margin: 0; background: #121925; color: #eef0f0; font: 15px/1.6 "Microsoft YaHei", system-ui, sans-serif; }
+  header { display: flex; gap: 16px; align-items: center; padding: 10px 20px; background: #0c121b; border-bottom: 1px solid #344256; }
+  select, button, input { background: #1b2433; color: #eef0f0; border: 1px solid #344256; padding: 3px 10px; font: inherit; border-radius: 3px; }
+  #time { font: 600 22px Consolas, monospace; min-width: 120px; }
+  #msg { color: #a8b6c4; margin-left: auto; }
+  #lines { padding: 20px 30px 60vh; }
+  .line { margin: 0 0 18px; opacity: .45; }
+  .line.cur { opacity: 1; }
+  .line .n { color: #64748a; font-size: 12px; margin-right: 8px; }
+  .k { display: inline-block; min-width: 34px; text-align: center; font: 600 30px "Yu Mincho", "MS Mincho", serif; margin: 0 1px; padding: 0 2px; border-radius: 4px; cursor: pointer; vertical-align: top; }
+  .k small { display: block; font: 11px Consolas, monospace; color: #64748a; height: 15px; }
+  .k.done { color: #7fd99a; }
+  .k.next { background: #ffd479; color: #121925; }
+  .k.next small { color: #121925; }
+  .txt { color: #a8b6c4; font-size: 14px; margin-left: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <span id="time">0:00.000</span>
+  <label>速度 <select id="rate"><option>1</option><option>0.85</option><option selected>0.7</option><option>0.5</option></select></label>
+  <label>音频 <select id="src"><option value="/assets/audio/track.mp3">原曲</option><option value="/assets/audio/vocals.wav">人声</option></select></label>
+  <label>提前量 <input id="lead" type="number" value="0" step="10" style="width:70px"> ms</label>
+  <button id="save">保存</button>
+  <span id="msg">空格 播放/暂停 · J 标下一个假名 · Backspace 撤销 · ←/→ 退/进 2 秒 · 点某个假名 = 从它重标</span>
+</header>
+<div id="lines"></div>
+<audio id="au" preload="auto" src="/assets/audio/track.mp3"></audio>
+<script type="module">
+const $ = (id) => document.getElementById(id);
+const D = await (await fetch('/data/tap_data.json')).json();
+const au = $('au'), KEY = 'koiirozora_kana_taps_v2';
+// every mora of the song in order: { line, k, auto }
+const M = D.lines.flatMap((L, i) => L.morae.map((m, j) => ({ line: i, j, k: m.k, auto: m.t })));
+const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+const T = saved.t && saved.t.length === M.length ? saved.t : M.map(() => null);
+let next = saved.next ?? 0;
+const keep = () => localStorage.setItem(KEY, JSON.stringify({ t: T, next }));
+const fmt = (s) => `${Math.floor(s / 60)}:${(s % 60).toFixed(3).padStart(6, '0')}`;
+
+// ---- view -----------------------------------------------------------------------------------------------------------
+$('lines').innerHTML = D.lines.map((L, i) => `<div class="line" id="L${i}"><span class="n">L${i}</span>${
+  M.map((m, q) => (m.line === i ? `<span class="k" data-q="${q}">${m.k}<small></small></span>` : '')).join('')}<span class="txt">${L.text}</span></div>`).join('');
+const els = [...document.querySelectorAll('.k')];
+function show(q) {
+  const e = els[q]; e.classList.toggle('done', T[q] != null); e.classList.toggle('next', q === next);
+  e.querySelector('small').textContent = T[q] != null ? T[q].toFixed(2) : '';
+}
+function showAll() { els.forEach((_, q) => show(q)); focusLine(); }
+let shownLine = -1;
+function focusLine() {
+  const ln = M[Math.min(next, M.length - 1)].line;
+  if (ln === shownLine) return;
+  document.querySelectorAll('.line.cur').forEach((e) => e.classList.remove('cur'));
+  const el = $('L' + ln); el.classList.add('cur'); el.scrollIntoView({ block: 'center', behavior: 'smooth' }); shownLine = ln;
+}
+
+// ---- keys -----------------------------------------------------------------------------------------------------------
+addEventListener('keydown', (ev) => {
+  if (ev.target.tagName === 'INPUT') return;
+  if (ev.target.tagName === 'SELECT') ev.target.blur();
+  if (ev.code === 'Space') { ev.preventDefault(); au.paused ? au.play() : au.pause(); }
+  else if (ev.code === 'KeyJ') {
+    if (au.paused || next >= M.length) return;
+    T[next] = +(au.currentTime - (+$('lead').value || 0) / 1000).toFixed(3);
+    const q = next; next++; show(q); if (next < M.length) show(next); focusLine(); keep();
+  } else if (ev.code === 'Backspace') {
+    ev.preventDefault();
+    if (next === 0) return;
+    next--; T[next] = null; show(next); if (next + 1 < M.length) show(next + 1); focusLine(); keep();
+  } else if (ev.code === 'ArrowLeft' || ev.code === 'ArrowRight') {
+    ev.preventDefault(); au.currentTime = Math.max(0, au.currentTime + (ev.code === 'ArrowLeft' ? -2 : 2));
+  }
+});
+$('lines').addEventListener('click', (e) => {                       // redo from this kana: it and everything after are kept until re-tapped
+  const el = e.target.closest('.k'); if (!el) return;
+  const old = next; next = +el.dataset.q; show(old); show(next); focusLine(); keep();
+  const ref = T[next] ?? M[next].auto; au.currentTime = Math.max(0, ref - 2);
+});
+$('rate').addEventListener('change', () => { au.playbackRate = +$('rate').value; });
+$('src').addEventListener('change', () => { const t = au.currentTime, p = !au.paused; au.src = $('src').value; au.currentTime = t; au.playbackRate = +$('rate').value; if (p) au.play(); });
+au.preservesPitch = true; au.playbackRate = +$('rate').value;
+(function tick() { $('time').textContent = fmt(au.currentTime); requestAnimationFrame(tick); })();
+
+// ---- save -----------------------------------------------------------------------------------------------------------
+$('save').addEventListener('click', async () => {
+  const out = { method: 'manual_tap', note: 'tools/tap.html: one key press per kana', lines: D.lines.map((L, i) => ({ line: i, morae: M.map((m, q) => [m, q]).filter(([m]) => m.line === i).map(([m, q]) => (T[q] == null ? { k: m.k } : { k: m.k, t: T[q] })) })) };
+  const body = JSON.stringify(out, null, 1);
+  try { const r = await fetch('/__save/manual_taps.json', { method: 'POST', body }); if (!r.ok) throw 0; $('msg').textContent = `已保存（${T.filter((t) => t != null).length} / ${M.length}）到 out/tap/manual_taps.json`; }
+  catch { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([body])); a.download = 'manual_taps.json'; a.click(); }
+});
+showAll();
+if (next > 0 && T[next - 1] != null) au.currentTime = Math.max(0, T[next - 1] - 2);   // resume where you stopped
+</script>
+</body>
+</html>

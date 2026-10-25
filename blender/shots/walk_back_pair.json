@@ -1,0 +1,17 @@
+{
+  "name": "walk_back_pair",
+  "description": "Back view: Touya left, Yuki right; her anatomical L meets his R. Four in-place gait phases moving toward +Y.",
+  "groups": ["character"],
+  "camera": {"position": [0,-7,1.0], "target": [0,0,0.95], "lens_mm": 65, "ortho_scale": 3.55},
+  "characters": {
+    "yuki": {"position": [0.37,0,0], "pose": "hold_walk", "hands": {"L":[0,0.06,0.89], "R":[0.66,0.02,0.83]}},
+    "touya": {"position": [-0.37,0,0], "pose": "hold_walk", "hands": {"R":[0,0.06,0.89], "L":[-0.67,-0.02,0.89]}}
+  },
+  "frames": [
+    {"phase":"contact"},
+    {"phase":"down", "characters": {"yuki":{"hands":{"L":[0,0.11,0.86],"R":[0.66,-0.08,0.81]}},"touya":{"hands":{"R":[0,0.11,0.86],"L":[-0.67,0.08,0.86]}}}},
+    {"phase":"passing", "characters": {"yuki":{"hands":{"L":[0,0.05,0.90],"R":[0.66,0.06,0.84]}},"touya":{"hands":{"R":[0,0.05,0.90],"L":[-0.67,-0.06,0.91]}}}},
+    {"phase":"up", "characters": {"yuki":{"hands":{"L":[0,-0.04,0.92],"R":[0.66,0.16,0.85]}},"touya":{"hands":{"R":[0,-0.04,0.92],"L":[-0.67,-0.16,0.92]}}}}
+  ],
+  "depth_range_m": [6.45,7.55]
+}

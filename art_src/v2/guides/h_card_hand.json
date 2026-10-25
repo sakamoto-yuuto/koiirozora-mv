@@ -1,0 +1,55 @@
+{
+"size": [
+1672,
+941
+],
+"items": [
+{
+"box": [
+1330,
+360,
+342,
+300
+],
+"label": "coat sleeve"
+},
+{
+"box": [
+990,
+330,
+360,
+330
+],
+"label": "bare hand"
+},
+{
+"box": [
+600,
+410,
+400,
+250
+],
+"label": "card (flat, horizontal)"
+},
+{
+"arrow": [
+[
+600,
+700
+],
+[
+420,
+700
+]
+],
+"label": "pushes LEFT"
+},
+{
+"text": [
+560,
+380
+],
+"label": "left edge of card = enters the slot"
+}
+]
+}

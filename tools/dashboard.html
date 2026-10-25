@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>恋色空 — 渲染进度</title>
+<style>
+  :root { --bg:#121925; --panel:#0c121b; --line:#344256; --text:#eef0f0; --sub:#a8b6c4; --mute:#64748a; --me:#b2495f; --you:#e3a35a; --ice:#afc9d8; --err:#d2443a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 "Noto Sans JP", "Microsoft YaHei", system-ui, sans-serif;
+    background-image: radial-gradient(var(--line) 1px, transparent 1.2px); background-size: 14px 14px; }
+  main { max-width: 1100px; margin: 28px auto; padding: 0 20px; }
+  h1 { font: 600 22px "Shippori Mincho", serif; margin: 0 0 4px; letter-spacing: .08em; }
+  h1 small { font: 400 13px system-ui; color: var(--mute); margin-left: 10px; letter-spacing: 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); padding: 18px 20px; margin-top: 16px; }
+  .big { display: flex; gap: 28px; align-items: baseline; flex-wrap: wrap; }
+  .pct { font: 600 56px/1 "JetBrains Mono", Consolas, monospace; color: var(--text); }
+  .kv { color: var(--sub); } .kv b { display: block; font: 600 20px "JetBrains Mono", Consolas, monospace; color: var(--text); }
+  .bar { height: 10px; background: #1c2533; margin-top: 14px; position: relative; overflow: hidden; }
+  .bar i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--me), var(--you)); transition: width .8s; }
+  .phase { display: inline-block; padding: 2px 10px; border: 1px solid var(--line); color: var(--ice); font: 12px Consolas, monospace; }
+  .phase.done { color: var(--you); border-color: var(--you); }
+  .tl { position: relative; height: 26px; margin: 22px 0 6px; border-bottom: 1px solid var(--line); }
+  .tl span { position: absolute; top: 0; font-size: 11px; color: var(--mute); white-space: nowrap; border-left: 1px solid var(--line); padding-left: 4px; height: 26px; }
+  .lane { display: grid; grid-template-columns: 70px 1fr 150px; align-items: center; gap: 12px; margin: 7px 0; font: 12px Consolas, monospace; color: var(--sub); }
+  .track { position: relative; height: 14px; background: #1c2533; }
+  .seg { position: absolute; top: 0; bottom: 0; background: #26324a; }
+  .seg i { position: absolute; inset: 0 auto 0 0; background: var(--ice); transition: width .8s; }
+  .seg.ok i { background: var(--you); }
+  .muted { color: var(--mute); font-size: 12px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>恋色空 <small>渲染进度 · 每秒刷新</small></h1>
+  <div class="card">
+    <div class="big">
+      <div class="pct" id="pct">–</div>
+      <div class="kv">已渲染<b id="frames">–</b></div>
+      <div class="kv">速度<b id="rate">–</b></div>
+      <div class="kv">已用<b id="elapsed">–</b></div>
+      <div class="kv">预计剩余<b id="eta">–</b></div>
+      <div><span class="phase" id="phase">waiting</span></div>
+    </div>
+    <div class="bar"><i id="fill" style="width:0"></i></div>
+    <div class="muted" id="meta"></div>
+  </div>
+  <div class="card">
+    <div class="tl" id="tl"></div>
+    <div id="lanes"></div>
+    <div class="muted">每一行是一个并行导出进程负责的那一段歌曲时间；蓝色＝正在渲染的进度，琥珀色＝这一段已完成。</div>
+  </div>
+</main>
+<script>
+const SECTIONS = [[0,'前奏'],[74.61,'V1'],[100.21,'B1'],[122.61,'C1'],[148.21,'间奏'],[173.81,'断线'],[186.61,'V2 电视'],[212.21,'B2'],[234.61,'C2'],[273.01,'桥段'],[295.41,'C3'],[320.44,'恋色の空'],[333.81,'尾奏'],[375.41,'片尾']];
+const $ = (id) => document.getElementById(id);
+const mmss = (s) => { s = Math.max(0, Math.round(s)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+let drawnTl = false, hist = [];
+async function tick() {
+  let p;
+  try { p = await (await fetch('/out/progress.json?' + Date.now())).json(); } catch { $('phase').textContent = 'no progress.json'; return; }
+  const span = p.end - p.start, total = p.chunks.reduce((s, c) => s + c.total, 0), done = p.chunks.reduce((s, c) => s + c.done, 0);
+  if (!drawnTl) {
+    $('tl').innerHTML = SECTIONS.filter(([t]) => t >= p.start && t < p.end).map(([t, n]) => `<span style="left:${(100 * (t - p.start)) / span}%">${n}</span>`).join('');
+    drawnTl = true;
+  }
+  hist.push([Date.now(), done]); hist = hist.filter(([t]) => Date.now() - t < 60000);
+  const [t0, d0] = hist[0], rate = hist.length > 1 ? ((done - d0) * 1000) / (Date.now() - t0) : p.chunks.reduce((s, c) => s + c.rate, 0);
+  const pct = total ? (100 * done) / total : 0;
+  $('pct').textContent = pct.toFixed(1) + '%';
+  $('frames').textContent = `${done} / ${total}`;
+  $('rate').textContent = rate > 0 ? rate.toFixed(1) + ' 帧/秒' : '–';
+  $('elapsed').textContent = mmss((p.now - p.started) / 1000);
+  $('eta').textContent = p.phase === 'done' ? '完成' : rate > 0 ? mmss((total - done) / rate) : '–';
+  $('phase').textContent = { render: '渲染中', mux: '拼接与混音', done: '已完成' }[p.phase] ?? p.phase;
+  $('phase').className = 'phase' + (p.phase === 'done' ? ' done' : '');
+  $('fill').style.width = pct + '%';
+  $('meta').textContent = `${p.out} · ${p.size ?? ''} ${p.fps} fps · 歌曲 ${mmss(p.start)}–${mmss(p.end)} · ${p.chunks.length} 路并行`;
+  $('lanes').innerHTML = p.chunks.map((c) => {
+    const l = (100 * (c.from - p.start)) / span, w = (100 * (c.to - c.from)) / span, k = c.total ? (100 * c.done) / c.total : 0;
+    return `<div class="lane"><span>进程 ${c.k + 1}</span><div class="track"><div class="seg${c.done >= c.total ? ' ok' : ''}" style="left:${l}%;width:${w}%"><i style="width:${k}%"></i></div></div><span>${mmss(c.from)}–${mmss(c.to)}  ${k.toFixed(0)}%</span></div>`;
+  }).join('');
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

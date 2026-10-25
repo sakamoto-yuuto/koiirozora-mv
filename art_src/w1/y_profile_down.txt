@@ -1,0 +1,12 @@
+Use the built-in image_gen tool. The attached images are official 2009 TV-anime WHITE ALBUM character sheets of Morikawa Yuki, given for IDENTITY ONLY (long straight hair past the chest, center-right part, airy side-swept bangs, small pale-blue flat barrette, high-neck knit top). Do not copy their layout, text or watermark.
+
+Generate exactly ONE portrait 3:4 image: a flat cut-paper / three-colour SCREENPRINT SILHOUETTE of her.
+STRICT FLAT INKS ONLY - no gradients, no soft shading, no airbrush, no texture, no outlines except the edges between ink shapes:
+ (1) cream #F1E9DA - skin, knit top, light shapes
+ (2) wine-rose #8E3B4A - hair
+ (3) near-black navy #1B2230 - shadow shapes, inner hair shadows, darkest parts
+ plus a tiny pale ice-blue #B9D6E4 ONLY for the barrette. No other colours at all.
+Large bold graphic shapes like a limited-ink poster print; hair strands as crisp pointed blade-like shapes; shadows as one flat navy plane (cel-like), never a gradient.
+Background: one perfectly flat uniform pure green #00FF00 filling the entire canvas (chroma key). The figure fully inside the frame with at least 6% empty margin above the head and on both sides. No text, no watermark, no signature.
+POSE / CONTENT: Side profile facing right, head bowed down, bust to mid-chest, eyes closed (one short navy stroke), long hair falling forward partly hiding the face. Bottom cut on a straight horizontal line.
+After generation, copy that exact image file to __OUT__ with PowerShell Copy-Item. Do not resize or edit it. If the call fails, retry once. Reply only with the final path and pixel size.

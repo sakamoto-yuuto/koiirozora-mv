@@ -1,0 +1,66 @@
+{
+  "a_train_window": {
+    "session": "01a1631e-9954-7c00-a787-709b40582906",
+    "dest": "a_train_window.png"
+  },
+  "a_phonebooth": {
+    "session": "01a1631e-99ea-7301-977c-97d65a5c1546",
+    "dest": "a_phonebooth.png"
+  },
+  "a_recording_booth": {
+    "session": "01a1631e-99c4-7632-b366-8f0e9cd25dc6",
+    "dest": "a_recording_booth.png"
+  },
+  "a_platform_back": {
+    "session": "01a1631e-99e9-7511-bac7-9ac87749740a",
+    "dest": "a_platform_back.png"
+  },
+  "b_stage_mic_v1": {
+    "session": "01a1631f-ca83-70f1-afb8-de8bfeb6be97",
+    "dest": "b_stage_mic_v1.png"
+  },
+  "b_stage_mic_v2": {
+    "session": "01a1631f-cac8-7ee0-8c88-9b40f79e9db0",
+    "dest": "b_stage_mic_v2.png"
+  },
+  "b_cover_portrait_v1": {
+    "session": "01a1631f-cac9-7250-be32-761525fb4bbc",
+    "dest": "b_cover_portrait_v1.png"
+  },
+  "b_cover_portrait_v2": {
+    "session": "01a1631f-caf6-7032-9636-875981ed93c1",
+    "dest": "b_cover_portrait_v2.png"
+  },
+  "c_sky_v1": {
+    "session": "01a1631f-cad9-7833-bbe4-5f0497be11a4",
+    "dest": "c_sky_v1.png"
+  },
+  "c_frost_hand_v1": {
+    "session": "01a1631f-cb03-7c12-a84e-04039ae75120",
+    "dest": "c_frost_hand_v1.png"
+  },
+  "c_snowfield_v1": {
+    "session": "01a1631f-cb49-7d70-9d14-099218ea7647",
+    "dest": "c_snowfield_v1.png"
+  },
+  "c_album_still_v1": {
+    "session": "01a1631f-cb4a-7082-8d7e-5aee1d70a868",
+    "dest": "c_album_still_v1.png"
+  },
+  "a_phonebooth_v2": {
+    "session": "01a16320-d1b5-7641-90fb-7826133e666d",
+    "dest": "a_phonebooth_v2.png"
+  },
+  "a_train_window_v2": {
+    "session": "01a16320-d19f-78e2-ae95-eb9f97753dd5",
+    "dest": "a_train_window_v2.png"
+  },
+  "c_world_clocks_v1": {
+    "session": "01a16320-d18d-7ba3-80c5-a9dd0c8a0bb4",
+    "dest": "c_world_clocks_v1.png"
+  },
+  "c_empty_stage_v1": {
+    "session": "01a16320-d1b5-7661-9394-bd538c617a20",
+    "dest": "c_empty_stage_v1.png"
+  }
+}

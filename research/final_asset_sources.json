@@ -1,0 +1,145 @@
+[
+  {
+    "job": "a_train_window",
+    "dest": "a_train_window.png",
+    "source": "~\\.codex\\generated_images\\01a1631e-9954-7c00-a787-709b40582906\\exec-6c3e8061-953b-42b5-aacb-adb287a563fb.png",
+    "src_bytes": 2481851,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "d88b0d01a44f101794c48b3824ef19a9251a78b6f63118ce98b19408bec5518c"
+  },
+  {
+    "job": "a_phonebooth",
+    "dest": "a_phonebooth.png",
+    "source": "~\\.codex\\generated_images\\01a1631e-99ea-7301-977c-97d65a5c1546\\exec-8be8b1b2-368c-4f3b-b0c8-d779942a0e24.png",
+    "src_bytes": 2680904,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "7e1172203b73d922f4b213ac3e3cd9411e2f970399b0945f0910b13dbcc31186"
+  },
+  {
+    "job": "a_recording_booth",
+    "dest": "a_recording_booth.png",
+    "source": "~\\.codex\\generated_images\\01a1631e-99c4-7632-b366-8f0e9cd25dc6\\exec-7547166d-34fa-4072-9daa-e10cca2e7502.png",
+    "src_bytes": 2268734,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "ac91677143d185b1bda21ecf51c931985007ad8205d6003e320de25c0fd0b437"
+  },
+  {
+    "job": "a_platform_back",
+    "dest": "a_platform_back_final.png",
+    "source": "~\\.codex\\generated_images\\01a1631e-99e9-7511-bac7-9ac87749740a\\exec-a2ddb9ea-bb9a-49d9-a461-2d11d31de900.png",
+    "src_bytes": 2559099,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "056a5648c10526102bda9dcb946fa1e5ec3777ae5e0218a117d3a949c66d522c"
+  },
+  {
+    "job": "b_stage_mic_v1",
+    "dest": "b_stage_mic_v1.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-ca83-70f1-afb8-de8bfeb6be97\\exec-c5dbfb02-f5bc-4b41-b6c5-ff6d6a4abfd3.png",
+    "src_bytes": 2272393,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "b9b0c8295fcccb217a0695b292de876224fe6b1b11e746079b60ffe58349cc39"
+  },
+  {
+    "job": "b_cover_portrait_v2",
+    "dest": "b_cover_portrait_v2.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-caf6-7032-9636-875981ed93c1\\exec-83772308-c630-4868-990a-f1deeaf20a00.png",
+    "src_bytes": 2492248,
+    "src_dim": [
+      1254,
+      1254
+    ],
+    "sha256": "36ba6faab6bc2935829d1b8594a5d27ae8b7327d75d1baa2727fd5419315f0ed"
+  },
+  {
+    "job": "c_sky_v1",
+    "dest": "c_sky_v1.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-cad9-7833-bbe4-5f0497be11a4\\exec-a8b3de8b-2f85-4d97-b3d7-30c2ad80931a.png",
+    "src_bytes": 3049412,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "ce19de216a80092451b3359ef7da552aa85e9456b5d273c568e8d6f46cef4afb"
+  },
+  {
+    "job": "c_frost_hand_v1",
+    "dest": "c_frost_hand_v1.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-cb03-7c12-a84e-04039ae75120\\exec-80c1188a-3477-4a54-9c1c-a0310140a287.png",
+    "src_bytes": 3537199,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "005b6bd2c243193c5a99b4fd50d4a4c530f70df4bc95550799bb4f848ac34bcf"
+  },
+  {
+    "job": "c_snowfield_v1",
+    "dest": "c_snowfield_v1.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-cb49-7d70-9d14-099218ea7647\\exec-e49c79e1-4ac1-4a45-9dc9-602e54c79e07.png",
+    "src_bytes": 3031067,
+    "src_dim": [
+      1672,
+      940
+    ],
+    "sha256": "c69a8da10509e4d0e94572190f3065b08f9837107dc806ca7acb84fc993bcfd9"
+  },
+  {
+    "job": "c_album_still_v1",
+    "dest": "c_album_still_v1.png",
+    "source": "~\\.codex\\generated_images\\01a1631f-cb4a-7082-8d7e-5aee1d70a868\\exec-fd9b37ec-32a6-4dd1-9879-7664e89630cd.png",
+    "src_bytes": 2788480,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "043c0d64dc6ee8981d89e10127ff808c0560fd47cb6fad2f1c1ef734734ad889"
+  },
+  {
+    "job": "a_phonebooth_v2",
+    "dest": "a_phonebooth_v2.png",
+    "source": "~\\.codex\\generated_images\\01a16320-d1b5-7641-90fb-7826133e666d\\exec-fe965a9e-0c42-4f92-818b-c78325cf9c7e.png",
+    "src_bytes": 2542533,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "8c3c57cb7f6f97a26e0251e19024d502c6256d3f53d3f3cf49416e53438f5195"
+  },
+  {
+    "job": "c_world_clocks_v1",
+    "dest": "c_world_clocks_v1.png",
+    "source": "~\\.codex\\generated_images\\01a16320-d18d-7ba3-80c5-a9dd0c8a0bb4\\exec-d7b662f8-7e50-45e3-9b6d-4f82a15405c5.png",
+    "src_bytes": 3386741,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "1f2071441e538d606c5b5ae5e89fd113735954abef49a8a319d44673961e5b95"
+  },
+  {
+    "job": "c_empty_stage_v1",
+    "dest": "c_empty_stage_v1.png",
+    "source": "~\\.codex\\generated_images\\01a16320-d1b5-7661-9394-bd538c617a20\\exec-3e286ac6-42d6-42a4-872b-3658ba1412be.png",
+    "src_bytes": 2845016,
+    "src_dim": [
+      1672,
+      941
+    ],
+    "sha256": "01955c45004e3abd6bfe155883961fede74b0f87e2065ea1a26323dc58eb76dd"
+  }
+]

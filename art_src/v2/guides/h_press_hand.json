@@ -1,0 +1,55 @@
+{
+"size": [
+1672,
+941
+],
+"items": [
+{
+"box": [
+1330,
+300,
+342,
+300
+],
+"label": "coat sleeve"
+},
+{
+"box": [
+880,
+300,
+460,
+330
+],
+"label": "bare hand, back of hand up"
+},
+{
+"arrow": [
+[
+900,
+420
+],
+[
+540,
+560
+]
+],
+"label": "index finger"
+},
+{
+"box": [
+500,
+540,
+60,
+60
+],
+"label": "fingertip"
+},
+{
+"text": [
+440,
+630
+],
+"label": "only the index finger is extended"
+}
+]
+}

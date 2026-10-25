@@ -1,0 +1,7 @@
+numpy
+scipy
+pillow
+librosa
+soundfile
+# optional: vocal stem for the tape voice / alignment experiments
+# demucs

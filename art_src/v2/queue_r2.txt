@@ -1,0 +1,12 @@
+yt_walk_back
+yt_hands_back
+yt_train_window
+yt_back_crowd
+yt_back_bust
+yt_scarf
+his_enter_back
+his_hand_press
+passer_turn_sheet
+y_lift_sheet
+y_smile_sheet
+y_receiver_close_sheet

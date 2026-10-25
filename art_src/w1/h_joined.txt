@@ -1,0 +1,7 @@
+Use the built-in image_gen tool. Generate exactly ONE image: a flat cut-paper / three-colour SCREENPRINT illustration.
+STRICT FLAT INKS ONLY - no gradients, no soft shading, no texture, no outlines except the edges between ink shapes:
+ (1) cream #F1E9DA, (2) warm amber #D99A4E, (3) near-black navy #1B2230. No other colours at all.
+Large bold graphic shapes like a limited-ink poster print; shadows as one flat navy plane, never a gradient.
+Background: one perfectly flat uniform pure green #00FF00 filling the entire canvas (chroma key), subject fully inside the frame with at least 6% empty margin on every side except where stated. No text, no watermark.
+CONTENT: Two hands holding each other, seen from the side, walking: on the LEFT a woman's hand in a cream knitted glove coming out of a cream sleeve; on the RIGHT a man's bare hand coming out of an AMBER coat sleeve, fingers interlocked. Only the hands and sleeves, cut by the left and right image edges. Landscape 16:9.
+After generation, copy that exact image file to __OUT__ with PowerShell Copy-Item. Do not resize or edit it. If the call fails, retry once. Reply only with the final path and pixel size.

@@ -1,0 +1,3 @@
+fg_pole_near
+fg_snowbank_near
+bg_window_couple

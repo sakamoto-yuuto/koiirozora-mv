@@ -1,0 +1,488 @@
+{
+  "units": "m",
+  "environment": {
+    "schema": "koiirozora.previs.environment.v1",
+    "units": "meters",
+    "axes": {
+      "up": "+Z",
+      "street_forward": "+Y"
+    },
+    "street": {
+      "bounds": {
+        "x": [
+          -6.05,
+          6.05
+        ],
+        "y": [
+          -7.0,
+          47.0
+        ],
+        "z": [
+          -0.16,
+          6.9
+        ]
+      },
+      "storefront_rows_x": [
+        -5.0,
+        5.0
+      ],
+      "camera": {
+        "position": [
+          -0.35,
+          -10.5,
+          2.05
+        ],
+        "target": [
+          0.25,
+          18.0,
+          1.6
+        ],
+        "lens_mm": 31.0
+      }
+    },
+    "booth": {
+      "center": [
+        3.6,
+        1.0,
+        0.0
+      ],
+      "dimensions": [
+        1.1,
+        1.14,
+        2.32
+      ],
+      "front_direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "phone": {
+        "model": "MC-3P",
+        "center": [
+          3.6,
+          1.32,
+          1.39
+        ],
+        "dimensions": [
+          0.23,
+          0.26,
+          0.37
+        ],
+        "front_direction": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "front_center": [
+          3.6,
+          1.19,
+          1.39
+        ],
+        "front_surface_y": 1.19,
+        "key_centers": {
+          "1": [
+            3.591,
+            1.174,
+            1.405
+          ],
+          "2": [
+            3.625,
+            1.174,
+            1.405
+          ],
+          "3": [
+            3.659,
+            1.174,
+            1.405
+          ],
+          "4": [
+            3.591,
+            1.174,
+            1.369
+          ],
+          "5": [
+            3.625,
+            1.174,
+            1.369
+          ],
+          "6": [
+            3.659,
+            1.174,
+            1.369
+          ],
+          "7": [
+            3.591,
+            1.174,
+            1.333
+          ],
+          "8": [
+            3.625,
+            1.174,
+            1.333
+          ],
+          "9": [
+            3.659,
+            1.174,
+            1.333
+          ],
+          "Star": [
+            3.591,
+            1.174,
+            1.297
+          ],
+          "0": [
+            3.625,
+            1.174,
+            1.297
+          ],
+          "Hash": [
+            3.659,
+            1.174,
+            1.297
+          ]
+        },
+        "key_press": {
+          "key": "6",
+          "target": [
+            3.659,
+            1.174,
+            1.369
+          ]
+        }
+      },
+      "camera": {
+        "position": [
+          3.6,
+          -0.34,
+          1.63
+        ],
+        "target": [
+          3.659,
+          1.174,
+          1.369
+        ],
+        "lens_mm": 32.0,
+        "hide": [
+          "Booth.Door.Glass",
+          "Booth.Door.Frame.Left",
+          "Booth.Door.Frame.Right",
+          "Booth.Door.Frame.Top"
+        ]
+      }
+    },
+    "room": {
+      "center": [
+        30.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": [
+        3.6,
+        2.7,
+        2.4
+      ],
+      "tatami": {
+        "count": 6,
+        "mat_dimensions": [
+          1.8,
+          0.9
+        ],
+        "layout": [
+          2,
+          3
+        ]
+      },
+      "entry": {
+        "door_center": [
+          28.88,
+          -1.405,
+          1.05
+        ],
+        "door_leaf_center": [
+          28.285,
+          -0.9200000000000002,
+          1.05
+        ],
+        "view_direction": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "camera": {
+        "position": [
+          30.0,
+          -3.35,
+          1.52
+        ],
+        "target": [
+          30.0,
+          0.25,
+          0.72
+        ],
+        "lens_mm": 26.0,
+        "hide": [
+          "Room.Wall.Front",
+          "Room.Ceiling"
+        ]
+      },
+      "table_center": [
+        30.0,
+        0.08,
+        0.4
+      ]
+    },
+    "interaction": {
+      "character_faces": "+Y",
+      "character_own_right": "+X",
+      "phone_key_press": {
+        "key": "6",
+        "target": [
+          3.659,
+          1.174,
+          1.369
+        ]
+      }
+    },
+    "hideable": {
+      "glass_property": {
+        "previs_glass": true
+      },
+      "room": [
+        "Room.Ceiling",
+        "Room.Wall.Front"
+      ]
+    },
+    "object_counts": {
+      "street": 318,
+      "booth": 71,
+      "room": 106
+    }
+  },
+  "characters": {
+    "yuki": {
+      "armature": "Yuki.Rig",
+      "height_m": 1.6,
+      "coordinate_system": {
+        "up": "+Z",
+        "forward": "+Y",
+        "left": "-X",
+        "right": "+X"
+      },
+      "bones": {
+        "root": "root",
+        "central": [
+          "pelvis",
+          "spine",
+          "chest",
+          "neck",
+          "head"
+        ],
+        "arms": {
+          "L": [
+            "clavicle.L",
+            "upper_arm.L",
+            "forearm.L",
+            "hand.L"
+          ],
+          "R": [
+            "clavicle.R",
+            "upper_arm.R",
+            "forearm.R",
+            "hand.R"
+          ]
+        },
+        "fingers": {
+          "L": [
+            "finger.thumb.L",
+            "finger.index.L",
+            "finger.middle.L",
+            "finger.ring.L",
+            "finger.pinky.L"
+          ],
+          "R": [
+            "finger.thumb.R",
+            "finger.index.R",
+            "finger.middle.R",
+            "finger.ring.R",
+            "finger.pinky.R"
+          ]
+        },
+        "legs": {
+          "L": [
+            "hip.L",
+            "thigh.L",
+            "shin.L",
+            "foot.L"
+          ],
+          "R": [
+            "hip.R",
+            "thigh.R",
+            "shin.R",
+            "foot.R"
+          ]
+        },
+        "all": [
+          "root",
+          "pelvis",
+          "spine",
+          "chest",
+          "neck",
+          "head",
+          "clavicle.L",
+          "upper_arm.L",
+          "forearm.L",
+          "hand.L",
+          "finger.thumb.L",
+          "finger.index.L",
+          "finger.middle.L",
+          "finger.ring.L",
+          "finger.pinky.L",
+          "clavicle.R",
+          "upper_arm.R",
+          "forearm.R",
+          "hand.R",
+          "finger.thumb.R",
+          "finger.index.R",
+          "finger.middle.R",
+          "finger.ring.R",
+          "finger.pinky.R",
+          "hip.L",
+          "thigh.L",
+          "shin.L",
+          "foot.L",
+          "hip.R",
+          "thigh.R",
+          "shin.R",
+          "foot.R"
+        ]
+      },
+      "endpoint_api": "evaluate_character_endpoints(character_id, world=True)",
+      "supported_poses": [
+        "stand",
+        "walk",
+        "dial",
+        "hold_walk"
+      ],
+      "walk_phases": [
+        "contact",
+        "down",
+        "passing",
+        "up"
+      ]
+    },
+    "touya": {
+      "armature": "Touya.Rig",
+      "height_m": 1.75,
+      "coordinate_system": {
+        "up": "+Z",
+        "forward": "+Y",
+        "left": "-X",
+        "right": "+X"
+      },
+      "bones": {
+        "root": "root",
+        "central": [
+          "pelvis",
+          "spine",
+          "chest",
+          "neck",
+          "head"
+        ],
+        "arms": {
+          "L": [
+            "clavicle.L",
+            "upper_arm.L",
+            "forearm.L",
+            "hand.L"
+          ],
+          "R": [
+            "clavicle.R",
+            "upper_arm.R",
+            "forearm.R",
+            "hand.R"
+          ]
+        },
+        "fingers": {
+          "L": [
+            "finger.thumb.L",
+            "finger.index.L",
+            "finger.middle.L",
+            "finger.ring.L",
+            "finger.pinky.L"
+          ],
+          "R": [
+            "finger.thumb.R",
+            "finger.index.R",
+            "finger.middle.R",
+            "finger.ring.R",
+            "finger.pinky.R"
+          ]
+        },
+        "legs": {
+          "L": [
+            "hip.L",
+            "thigh.L",
+            "shin.L",
+            "foot.L"
+          ],
+          "R": [
+            "hip.R",
+            "thigh.R",
+            "shin.R",
+            "foot.R"
+          ]
+        },
+        "all": [
+          "root",
+          "pelvis",
+          "spine",
+          "chest",
+          "neck",
+          "head",
+          "clavicle.L",
+          "upper_arm.L",
+          "forearm.L",
+          "hand.L",
+          "finger.thumb.L",
+          "finger.index.L",
+          "finger.middle.L",
+          "finger.ring.L",
+          "finger.pinky.L",
+          "clavicle.R",
+          "upper_arm.R",
+          "forearm.R",
+          "hand.R",
+          "finger.thumb.R",
+          "finger.index.R",
+          "finger.middle.R",
+          "finger.ring.R",
+          "finger.pinky.R",
+          "hip.L",
+          "thigh.L",
+          "shin.L",
+          "foot.L",
+          "hip.R",
+          "thigh.R",
+          "shin.R",
+          "foot.R"
+        ]
+      },
+      "endpoint_api": "evaluate_character_endpoints(character_id, world=True)",
+      "supported_poses": [
+        "stand",
+        "walk",
+        "dial",
+        "hold_walk"
+      ],
+      "walk_phases": [
+        "contact",
+        "down",
+        "passing",
+        "up"
+      ]
+    }
+  },
+  "object_count": 571,
+  "blender": "5.2.2 LTS"
+}

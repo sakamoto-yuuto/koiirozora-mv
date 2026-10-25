@@ -1,0 +1,10 @@
+{
+  "name": "walk_cycle_side",
+  "description": "Exact side view, forward screen-right, invariant camera; both hands separated in all four phases.",
+  "groups": ["character"],
+  "camera": {"position": [6,0,0.92], "target": [0,0,0.92], "lens_mm": 65, "ortho_scale": 2.65},
+  "characters": {"yuki": {"position": [0,0,0], "pose": "walk"}},
+  "frames": [{"phase":"contact"},{"phase":"down"},{"phase":"passing"},{"phase":"up"}],
+  "depth_range_m": [5.35,6.65],
+  "key_light": {"position": [3,-3,5], "energy": 550, "size": 4}
+}

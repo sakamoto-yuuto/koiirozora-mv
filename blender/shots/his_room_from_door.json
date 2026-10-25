@@ -1,0 +1,11 @@
+{
+  "name": "his_room_from_door",
+  "description": "Six-tatami room from the entrance side; table middle, empty hooks, folded futons and right window.",
+  "groups": ["room"],
+  "hide_glass": true,
+  "hide": ["Room.Wall.Front", "Room.Ceiling"],
+  "camera": {"position": [30,-3.35,1.52], "target": [30,0.25,0.72], "lens_mm": 26},
+  "characters": {},
+  "depth_range_m": [0.8,6.0],
+  "key_light": {"position": [31.3,-0.4,2.2], "energy": 180, "size": 2}
+}

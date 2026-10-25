@@ -1,0 +1,29 @@
+# build / render output
+out/
+node_modules/
+.venv*/
+__pycache__/
+*.pyc
+tmp*/
+torchinductor_*/
+
+# copyrighted, kept in the private repo
+assets/audio/
+research/lyrics_and_music.md
+
+# generation side files
+art_src/**/*.log
+art_src/**/*.msg
+art_src/**/done.txt
+art_src/**/_rejected/
+art_src/**/_failed_crlf/
+docs/tasks/*.log
+docs/tasks/*.err
+
+# alignment experiments: models, caches, virtual envs
+tools/align_lab/_cache/
+tools/align_lab/**/.venv/
+tools/align_lab/hubertfa/HubertFA/
+blender/out/
+blender/_tmp/
+*.blend1
